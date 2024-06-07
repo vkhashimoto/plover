@@ -1278,6 +1278,9 @@ class KeyboardEmulation(GenericKeyboardEmulation):
         for mod_keycode in modifiers_list:
             xtest.fake_input(self._display, X.KeyPress, mod_keycode)
         # Press and release the base key.
+        # TODO: To fix question mark
+        if keycode == 97:
+            keycode = 61
         xtest.fake_input(self._display, X.KeyPress, keycode)
         xtest.fake_input(self._display, X.KeyRelease, keycode)
         # Release modifiers.
